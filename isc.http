@@ -1,0 +1,4 @@
+
+### https://leaderboard.isengrim.org/api/usernames/{Username}/seasons/{season}
+GET https://leaderboard.isengrim.org/api/usernames/TheUltimateGhost HTTP/1.1
+content-type: application/json
