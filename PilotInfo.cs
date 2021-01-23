@@ -98,13 +98,13 @@ namespace isc_data
                 StringBuilder sb = new StringBuilder();
 
                 decimal percentileTotal = 0;
-                for (var i = 0; i < 10; i++)
+                for (var i = 0; i < 8; i++)
                 {
                     if (i > team.Pilots.Count - 1) break;
                     sb.Append(team.Pilots[i].PilotName + ", ");
                     percentileTotal += team.Pilots[i].Percentile;
                 }
-                team.SeedRanking = percentileTotal / 10;
+                team.SeedRanking = percentileTotal / 8;
                 team.PilotsUsedForSeeding = sb.ToString();
 
                 teamswithStats.Add(team);

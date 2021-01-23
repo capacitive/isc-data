@@ -30,10 +30,9 @@ namespace isc_data
             foreach (var p in Pilots)
             {
                 if (p == null) continue;
-                sb.Append(p.PilotName + "                   Percentile: ");
-                sb.Append(p.Percentile + "\r\n");
+                sb.Append($"{p.PilotName},{ p.Percentile},");
             }
-            return $"Team: {Name} | League {League} | Year: {Year} \r\nPilots: \r\n{sb}";
+            return $"{Name},{League},{Year},{sb.ToString().Substring(0, sb.Length - 1)}";
         }
     }
 
