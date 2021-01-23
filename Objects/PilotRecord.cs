@@ -22,6 +22,7 @@ namespace isc_data
         public string League { get; set; }
         public decimal SeedRanking { get; set; }
         public List<Pilot> Pilots { get; set; }
+        public string PilotsUsedForSeeding { get; set; }
 
         public override string ToString()
         {

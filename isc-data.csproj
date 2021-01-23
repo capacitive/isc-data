@@ -90,7 +90,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="APICall.cs" />
     <Compile Include="Objects\PilotRecord.cs" />
+    <Compile Include="PilotInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
