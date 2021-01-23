@@ -25,7 +25,8 @@ namespace isc_data
         {
             var service = AuthorizeGoogleApp();
             string sheetName = "ISCCompTeamReconData_" + DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "_" + 
-                DateTime.Now.Day.ToString() + "_" + 
+                DateTime.Now.Day.ToString() + "_" +
+                DateTime.Now.Hour.ToString() + ":" +
                 DateTime.Now.Minute.ToString() + ":" +
                 DateTime.Now.Second.ToString();
             var newSheet = new Google.Apis.Sheets.v4.Data.Spreadsheet();
