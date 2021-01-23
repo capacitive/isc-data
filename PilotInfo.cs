@@ -62,6 +62,7 @@ namespace isc_data
                         team.Pilots.Add(pilot);
                     }
                     else
+                    #region retry logic - last known season
                     {
                         //try one more times using latest season:
                         int season = 53;
@@ -84,6 +85,7 @@ namespace isc_data
                             }
                         }
                     }
+                    #endregion
 
                     if (response == null)
                     {
@@ -95,17 +97,25 @@ namespace isc_data
                 team.Pilots = new List<Pilot>();
                 team.Pilots.AddRange(sortedPilots);
 
+                #region seeding
                 StringBuilder sb = new StringBuilder();
-
                 decimal percentileTotal = 0;
                 for (var i = 0; i < 8; i++)
                 {
-                    if (i > team.Pilots.Count - 1) break;
+                    if (i > team.Pilots.Count - 1) 
+                    {
+                        break;
+                    }
+                    if (team.Pilots[i].LastSeason == 0)
+                    {
+                        continue;
+                    }
                     sb.Append(team.Pilots[i].PilotName + ", ");
                     percentileTotal += team.Pilots[i].Percentile;
                 }
                 team.SeedRanking = percentileTotal / 8;
                 team.PilotsUsedForSeeding = sb.ToString();
+                #endregion
 
                 teamswithStats.Add(team);
             }
